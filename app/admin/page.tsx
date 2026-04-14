@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { apiGetSager, apiUpdateStatus } from '@/lib/api'
 
+const logoSrc = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/logo-white.svg`
+
 type Sag = {
   id: number
   token: string
@@ -93,7 +95,7 @@ export default function AdminDashboard() {
       {/* Header */}
       <header style={{ backgroundColor: '#2C403A' }} className="py-4 px-6 shadow-sm">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <Image src="/logo-white.svg" alt="Blomfelt" width={160} height={72} priority />
+          <Image src={logoSrc} alt="Blomfelt" width={160} height={72} priority />
           <div className="flex items-center gap-6">
             <span className="text-white/50 text-xs border border-white/20 px-2 py-1 rounded">Admin</span>
             <nav className="flex gap-4 text-sm">

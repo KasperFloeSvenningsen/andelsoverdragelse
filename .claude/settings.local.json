@@ -82,7 +82,9 @@
       "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run watch 24423265791 --repo KasperFloeSvenningsen/andelsoverdragelse 2>&1\")",
       "Bash(powershell -Command \"Start-Sleep -Seconds 12; & 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run list --repo KasperFloeSvenningsen/andelsoverdragelse --limit 1 2>&1\")",
       "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run watch 24423562356 --repo KasperFloeSvenningsen/andelsoverdragelse 2>&1\")",
-      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run watch 24423742731 --repo KasperFloeSvenningsen/andelsoverdragelse 2>&1\")"
+      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run watch 24423742731 --repo KasperFloeSvenningsen/andelsoverdragelse 2>&1\")",
+      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run watch 24423963641 --repo KasperFloeSvenningsen/andelsoverdragelse 2>&1\")",
+      "WebFetch(domain:kasperfloesvenningsen.github.io)"
     ]
   }
 }

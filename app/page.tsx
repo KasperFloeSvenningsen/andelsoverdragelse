@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { apiAnmod } from '@/lib/api'
 
+const logoSrc = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/logo-white.svg`
+
 export default function LandingPage() {
   const [form, setForm] = useState({ navn: '', email: '', telefon: '', adresse: '' })
   const [status, setStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle')
@@ -28,7 +30,7 @@ export default function LandingPage() {
       <header style={{ backgroundColor: '#2C403A' }} className="py-5 px-6 shadow-sm">
         <div className="max-w-4xl mx-auto">
           <Image
-            src="/logo-white.svg"
+            src={logoSrc}
             alt="Blomfelt Ejendomsadministration"
             width={220}
             height={99}
@@ -161,7 +163,7 @@ export default function LandingPage() {
       </main>
 
       <footer style={{ backgroundColor: '#2C403A' }} className="text-white/50 text-xs text-center py-5 px-6">
-        <Image src="/logo-white.svg" alt="Blomfelt" width={90} height={40} className="mx-auto mb-3 opacity-60" />
+        <Image src={logoSrc} alt="Blomfelt" width={90} height={40} className="mx-auto mb-3 opacity-60" />
         Blomfelt A/S · handel@blomfelt.dk · Tlf. 35 25 02 55
       </footer>
     </div>

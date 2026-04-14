@@ -5,6 +5,8 @@ import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import { apiGetSag, apiSaveSag } from '@/lib/api'
 
+const logoSrc = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/logo-white.svg`
+
 // ─── Types ────────────────────────────────────────────────
 type Forbedring = { id: string; beskrivelse: string; aar: string; beloeb: string }
 type Mangel = { id: string; beskrivelse: string; udbedres: boolean }
@@ -416,7 +418,7 @@ export default function WizardClient({ tokenOverride }: { tokenOverride?: string
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDF6E1' }}>
       <header style={{ backgroundColor: '#2C403A' }} className="py-4 px-6">
         <div className="max-w-2xl mx-auto">
-          <Image src="/logo-white.svg" alt="Blomfelt" width={160} height={72} />
+          <Image src={logoSrc} alt="Blomfelt" width={160} height={72} />
         </div>
       </header>
       <main className="flex-1 flex items-center justify-center p-6">
@@ -440,7 +442,7 @@ export default function WizardClient({ tokenOverride }: { tokenOverride?: string
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#FDF6E1' }}>
       <header style={{ backgroundColor: '#2C403A' }} className="py-4 px-6">
         <div className="max-w-2xl mx-auto flex justify-between items-center">
-          <Image src="/logo-white.svg" alt="Blomfelt" width={140} height={63} />
+          <Image src={logoSrc} alt="Blomfelt" width={140} height={63} />
           <div className="text-xs text-white/50">Andelsoverdragelse</div>
         </div>
       </header>
