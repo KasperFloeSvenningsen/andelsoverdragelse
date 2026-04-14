@@ -355,9 +355,9 @@ function Trin5({ data, sagInfo }: { data: WizardData; sagInfo: SagInfo }) {
 }
 
 // ─── Hoved-wizard ─────────────────────────────────────────
-export default function WizardClient() {
+export default function WizardClient({ tokenOverride }: { tokenOverride?: string }) {
   const params = useParams()
-  const token = params.token as string
+  const token = tokenOverride ?? (params.token as string)
 
   const [step, setStep] = useState(0)
   const [sagInfo, setSagInfo] = useState<SagInfo | null>(null)

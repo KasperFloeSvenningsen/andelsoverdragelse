@@ -69,15 +69,18 @@ export default function LandingPage() {
               {/* Demo-link */}
               <div className="rounded-lg p-4 text-left border" style={{ backgroundColor: '#AFD0E7' + '33', borderColor: '#AFD0E7' }}>
                 <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: '#2C403A' }}>
-                  Demo – dit unikke link
+                  Dit unikke link
                 </p>
-                <a
-                  href={`/saelg/${token}`}
-                  className="font-medium break-all hover:underline text-sm"
-                  style={{ color: '#2C403A' }}
-                >
-                  {typeof window !== 'undefined' ? `${window.location.origin}/saelg/${token}` : `/saelg/${token}`}
-                </a>
+                {(() => {
+                  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+                  const path = `${base}/saelg/?token=${token}`
+                  const full = typeof window !== 'undefined' ? `${window.location.origin}${path}` : path
+                  return (
+                    <a href={path} className="font-medium break-all hover:underline text-sm" style={{ color: '#2C403A' }}>
+                      {full}
+                    </a>
+                  )
+                })()}
               </div>
               <a href="/admin" className="btn-secondary mt-4 inline-block text-center text-sm w-full">
                 Se admin-dashboard →

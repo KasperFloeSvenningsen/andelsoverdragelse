@@ -218,8 +218,11 @@ export default function AdminDashboard() {
 
                 <div className="mt-6 space-y-2">
                   {selected.status === 'anmodet' && (
-                    <a href={`/saelg/${selected.token}`} target="_blank"
-                      className="btn-secondary text-sm w-full text-center block">
+                    <a
+                      href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/saelg/?token=${selected.token}`}
+                      target="_blank"
+                      className="btn-secondary text-sm w-full text-center block"
+                    >
                       Åbn sælger-wizard
                     </a>
                   )}

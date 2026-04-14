@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   // GitHub Pages serves from /andelsoverdragelse/ — only apply in prod builds
   basePath: isProd ? '/andelsoverdragelse' : '',
   assetPrefix: isProd ? '/andelsoverdragelse/' : '',
+  // Expose basePath to client components so links are constructed correctly
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProd ? '/andelsoverdragelse' : '',
+  },
   images: {
     // Static export doesn't support Next.js image optimisation
     unoptimized: true,
