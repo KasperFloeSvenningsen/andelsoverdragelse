@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { apiGetSager, apiUpdateStatus } from '@/lib/api'
 
 const logoSrc = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/logo-white.svg`
@@ -99,8 +100,8 @@ export default function AdminDashboard() {
           <div className="flex items-center gap-6">
             <span className="text-white/50 text-xs border border-white/20 px-2 py-1 rounded">Admin</span>
             <nav className="flex gap-4 text-sm">
-              <a href="/" className="text-white/70 hover:text-white transition-colors">Ny sag</a>
-              <a href="/admin" className="text-white font-semibold">Sager</a>
+              <Link href="/" className="text-white/70 hover:text-white transition-colors">Ny sag</Link>
+              <Link href="/admin" className="text-white font-semibold">Sager</Link>
             </nav>
           </div>
         </div>
@@ -220,13 +221,13 @@ export default function AdminDashboard() {
 
                 <div className="mt-6 space-y-2">
                   {selected.status === 'anmodet' && (
-                    <a
-                      href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/saelg/?token=${selected.token}`}
+                    <Link
+                      href={`/saelg/?token=${selected.token}`}
                       target="_blank"
                       className="btn-secondary text-sm w-full text-center block"
                     >
                       Åbn sælger-wizard
-                    </a>
+                    </Link>
                   )}
                   {selected.status === 'opstilling_klar' && (
                     <button className="btn-primary text-sm w-full">Godkend salgsopstilling</button>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { apiAnmod } from '@/lib/api'
 
 const logoSrc = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/logo-white.svg`
@@ -73,20 +74,19 @@ export default function LandingPage() {
                 <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: '#2C403A' }}>
                   Dit unikke link
                 </p>
-                {(() => {
-                  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
-                  const path = `${base}/saelg/?token=${token}`
-                  const full = typeof window !== 'undefined' ? `${window.location.origin}${path}` : path
-                  return (
-                    <a href={path} className="font-medium break-all hover:underline text-sm" style={{ color: '#2C403A' }}>
-                      {full}
-                    </a>
-                  )
-                })()}
+                <Link
+                  href={`/saelg/?token=${token}`}
+                  className="font-medium break-all hover:underline text-sm"
+                  style={{ color: '#2C403A' }}
+                >
+                  {typeof window !== 'undefined'
+                    ? `${window.location.origin}${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/saelg/?token=${token}`
+                    : `/saelg/?token=${token}`}
+                </Link>
               </div>
-              <a href="/admin" className="btn-secondary mt-4 inline-block text-center text-sm w-full">
+              <Link href="/admin" className="btn-secondary mt-4 inline-block text-center text-sm w-full">
                 Se admin-dashboard →
-              </a>
+              </Link>
             </div>
           ) : (
             <div className="card">
