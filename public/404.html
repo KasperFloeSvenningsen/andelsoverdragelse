@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <title>Blomfelt – omstiller…</title>
+  <script>
+    /**
+     * GitHub Pages 404 redirect
+     *
+     * GitHub Pages can only serve pre-generated files. Any URL that
+     * doesn't map to a file gets this 404.html instead. We use it to
+     * redirect wizard token URLs to the correct query-param form so
+     * the single static /saelg/ page can handle them.
+     *
+     * Handles both formats:
+     *   /saelg/TOKEN                           (missing basePath)
+     *   /andelsoverdragelse/saelg/TOKEN        (correct basePath, old format)
+     *
+     * Both redirect to:
+     *   /andelsoverdragelse/saelg/?token=TOKEN
+     */
+    (function () {
+      var base  = '/andelsoverdragelse';
+      var path  = window.location.pathname;
+
+      // Strip basePath if already present
+      var clean = path.indexOf(base) === 0 ? path.slice(base.length) : path;
+
+      // Match /saelg/<TOKEN> (with or without trailing slash)
+      var m = clean.match(/^\/saelg\/([^\/]+)\/?$/);
+      if (m) {
+        var token = m[1];
+        window.location.replace(base + '/saelg/?token=' + encodeURIComponent(token));
+        return;
+      }
+
+      // Unknown path → go home
+      window.location.replace(base + '/');
+    })();
+  </script>
+  <style>
+    body { font-family: sans-serif; display: flex; align-items: center;
+           justify-content: center; height: 100vh; margin: 0;
+           background: #FDF6E1; color: #2C403A; }
+  </style>
+</head>
+<body>
+  <p>Omstiller…</p>
+</body>
+</html>
