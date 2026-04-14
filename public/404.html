@@ -22,19 +22,30 @@
     (function () {
       var base  = '/andelsoverdragelse';
       var path  = window.location.pathname;
+      var qs    = window.location.search;
 
-      // Strip basePath if already present
+      // Strip basePath if already present so we work with a clean path
       var clean = path.indexOf(base) === 0 ? path.slice(base.length) : path;
+      // Normalise: remove trailing slash (except root)
+      clean = clean.replace(/\/+$/, '') || '/';
 
-      // Match /saelg/<TOKEN> (with or without trailing slash)
-      var m = clean.match(/^\/saelg\/([^\/]+)\/?$/);
+      // 1. /saelg/<TOKEN> → /saelg/?token=TOKEN  (legacy token-in-path URLs)
+      var m = clean.match(/^\/saelg\/([^\/]+)$/);
       if (m) {
-        var token = m[1];
-        window.location.replace(base + '/saelg/?token=' + encodeURIComponent(token));
+        window.location.replace(base + '/saelg/?token=' + encodeURIComponent(m[1]));
         return;
       }
 
-      // Unknown path → go home
+      // 2. Any other known route that is simply missing the basePath prefix
+      //    e.g. /admin → /andelsoverdragelse/admin/
+      //         /saelg → /andelsoverdragelse/saelg/
+      var known = ['/admin', '/saelg', '/'];
+      if (known.indexOf(clean) !== -1 || clean.indexOf('/saelg') === 0) {
+        window.location.replace(base + clean + (clean === '/' ? '' : '/') + qs);
+        return;
+      }
+
+      // 3. Fallback → home
       window.location.replace(base + '/');
     })();
   </script>
