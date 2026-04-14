@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { apiGetSager, apiUpdateStatus } from '@/lib/api'
 
 type Sag = {
   id: number
@@ -74,9 +75,7 @@ export default function AdminDashboard() {
   const [filter, setFilter] = useState('alle')
 
   useEffect(() => {
-    fetch('/api/sager')
-      .then(r => r.json())
-      .then(d => { setSager(d); setLoading(false) })
+    apiGetSager().then(d => { setSager(d); setLoading(false) })
   }, [])
 
   const statuses = ['alle', ...Array.from(new Set(sager.map(s => s.status)))]
@@ -232,7 +231,7 @@ export default function AdminDashboard() {
                   )}
                   <button className="btn-secondary text-sm w-full" onClick={() => {
                     const next = prompt('Ny status:')
-                    if (next) fetch(`/api/sager`, { method: 'PATCH', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ id: selected.id, status: next }) }).then(() => location.reload())
+                    if (next) apiUpdateStatus(selected.id, next).then(() => location.reload())
                   }}>
                     Opdater status
                   </button>

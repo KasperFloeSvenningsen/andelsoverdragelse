@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
+import { apiGetSag, apiSaveSag } from '@/lib/api'
 
 // ─── Types ────────────────────────────────────────────────
 type Forbedring = { id: string; beskrivelse: string; aar: string; beloeb: string }
@@ -378,8 +379,7 @@ export default function WizardClient() {
   })
 
   useEffect(() => {
-    fetch(`/api/sag/${token}`)
-      .then(r => r.json())
+    apiGetSag(token)
       .then(d => { setSagInfo(d); setLoading(false) })
       .catch(() => { setError('Ugyldigt eller udløbet link'); setLoading(false) })
   }, [token])
@@ -387,12 +387,7 @@ export default function WizardClient() {
   async function handleSubmit() {
     setSubmitting(true)
     try {
-      const res = await fetch(`/api/sag/${token}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      })
-      if (!res.ok) throw new Error()
+      await apiSaveSag(token, data)
       setSubmitted(true)
     } catch {
       alert('Der opstod en fejl. Prøv igen.')

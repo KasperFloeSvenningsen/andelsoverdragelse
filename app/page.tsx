@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { apiAnmod } from '@/lib/api'
 
 export default function LandingPage() {
   const [form, setForm] = useState({ navn: '', email: '', telefon: '', adresse: '' })
@@ -12,13 +13,7 @@ export default function LandingPage() {
     e.preventDefault()
     setStatus('loading')
     try {
-      const res = await fetch('/api/anmod', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error)
+      const data = await apiAnmod(form.navn, form.email, form.telefon, form.adresse)
       setToken(data.token)
       setStatus('sent')
     } catch {

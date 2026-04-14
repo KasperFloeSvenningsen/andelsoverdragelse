@@ -76,7 +76,10 @@
       "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run view 24423052242 --repo KasperFloeSvenningsen/andelsoverdragelse --log-failed 2>&1\")",
       "Bash(powershell -Command \"Start-Sleep -Seconds 20; & 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run list --repo KasperFloeSvenningsen/andelsoverdragelse --limit 1 2>&1\")",
       "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run watch 24423204017 --repo KasperFloeSvenningsen/andelsoverdragelse 2>&1\")",
-      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run view 24423204017 --repo KasperFloeSvenningsen/andelsoverdragelse --log-failed 2>&1\")"
+      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run view 24423204017 --repo KasperFloeSvenningsen/andelsoverdragelse --log-failed 2>&1\")",
+      "Bash(powershell -Command \"Start-Sleep -Seconds 15; & 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run watch --repo KasperFloeSvenningsen/andelsoverdragelse 2>&1\")",
+      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run list --repo KasperFloeSvenningsen/andelsoverdragelse --limit 1 2>&1\")",
+      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run watch 24423265791 --repo KasperFloeSvenningsen/andelsoverdragelse 2>&1\")"
     ]
   }
 }
