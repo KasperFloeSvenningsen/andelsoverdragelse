@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Montserrat fra Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+    background-color: #FDF6E1; /* Blomfelt Yellow som baggrund */
+  }
+  body {
+    color: #000;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blomfelt-green text-white px-6 py-3 rounded-lg font-semibold
+           hover:bg-blomfelt-green-dark transition-colors
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-white text-blomfelt-green border-2 border-blomfelt-green px-6 py-3 rounded-lg font-semibold
+           hover:bg-blomfelt-yellow transition-colors;
+  }
+  .input-field {
+    @apply w-full border border-gray-300 rounded-lg px-4 py-3 bg-white
+           focus:outline-none focus:ring-2 focus:ring-blomfelt-green focus:border-transparent
+           font-sans text-sm;
+  }
+  .label {
+    @apply block text-sm font-semibold text-blomfelt-green mb-1.5;
+  }
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6;
+  }
+  /* Informationsboks – blå */
+  .info-box {
+    @apply bg-[#AFD0E7]/30 border border-[#AFD0E7] rounded-lg p-4 text-sm;
+  }
+  /* Advarselsboks – sunny */
+  .warn-box {
+    @apply bg-[#F9C271]/25 border border-[#F9C271] rounded-lg p-4 text-sm text-gray-800;
+  }
+}
