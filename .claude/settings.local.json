@@ -64,7 +64,14 @@
       "Bash(powershell -Command \"where.exe gh\")",
       "Bash(powershell -Command \"winget install --id GitHub.cli --silent --accept-source-agreements --accept-package-agreements\")",
       "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' auth status\")",
-      "Bash(powershell -Command \"New-Item -ItemType Directory -Force -Path 'C:\\\\Users\\\\KasperFl\\\\u00F8eSvenningse\\\\Downloads\\\\code\\\\Andelsoverdragelse\\\\.github\\\\workflows'\")"
+      "Bash(powershell -Command \"New-Item -ItemType Directory -Force -Path 'C:\\\\Users\\\\KasperFl\\\\u00F8eSvenningse\\\\Downloads\\\\code\\\\Andelsoverdragelse\\\\.github\\\\workflows'\")",
+      "Bash(printf '\\\\xc3\\\\xb8')",
+      "Bash(echo \"C:/Users/KasperFl$\\(printf '\\\\xc3\\\\xb8'\\)eSvenningse/Downloads/code/Andelsoverdragelse/make-dirs.ps1\")",
+      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' api --method POST -H 'Accept: application/vnd.github+json' /repos/KasperFloeSvenningsen/andelsoverdragelse/pages -f build_type='workflow' 2>&1\")",
+      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' workflow run deploy.yml --repo KasperFloeSvenningsen/andelsoverdragelse 2>&1\")",
+      "Bash(powershell -Command \"Start-Sleep -Seconds 15; & 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run view 24422937638 --repo KasperFloeSvenningsen/andelsoverdragelse 2>&1\")",
+      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run watch 24422937638 --repo KasperFloeSvenningsen/andelsoverdragelse 2>&1\")",
+      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' run view 24422937638 --repo KasperFloeSvenningsen/andelsoverdragelse --log-failed 2>&1\")"
     ]
   }
 }
