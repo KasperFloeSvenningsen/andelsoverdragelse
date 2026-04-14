@@ -4,6 +4,16 @@ import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Image from 'next/image'
 
+// Pre-render the known demo pages at build time (required for static export).
+// In production all real tokens are fetched client-side at runtime.
+export async function generateStaticParams() {
+  return [
+    { token: 'DEMO-TOKEN-SOEREN-2025' },
+    { token: 'DEMO-TOKEN-KIRSTEN-2025' },
+    { token: 'DEMO-TOKEN-ANDERS-2024' },
+  ]
+}
+
 // ─── Types ────────────────────────────────────────────────
 type Forbedring = { id: string; beskrivelse: string; aar: string; beloeb: string }
 type Mangel = { id: string; beskrivelse: string; udbedres: boolean }

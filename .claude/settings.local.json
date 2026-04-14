@@ -63,7 +63,8 @@
       "Bash(powershell -Command \"git --version\")",
       "Bash(powershell -Command \"where.exe gh\")",
       "Bash(powershell -Command \"winget install --id GitHub.cli --silent --accept-source-agreements --accept-package-agreements\")",
-      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' auth status\")"
+      "Bash(powershell -Command \"& 'C:\\\\Program Files\\\\GitHub CLI\\\\gh.exe' auth status\")",
+      "Bash(powershell -Command \"New-Item -ItemType Directory -Force -Path 'C:\\\\Users\\\\KasperFl\\\\u00F8eSvenningse\\\\Downloads\\\\code\\\\Andelsoverdragelse\\\\.github\\\\workflows'\")"
     ]
   }
 }
